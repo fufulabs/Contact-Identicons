@@ -138,22 +138,21 @@ public class MainActivity extends ListActivity implements
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-		case R.id.select_all_contacts:
-			Cursor c = mAdapter.getCursor();
-			for (int i = 0; i < c.getCount(); i++)
-				selectedContacts.add(i);
+        if (item.getItemId() == R.id.select_all_contacts) {
+            Cursor c = mAdapter.getCursor();
+            for (int i = 0; i < c.getCount(); i++)
+                selectedContacts.add(i);
 
-			mAdapter.notifyDataSetChanged();
-			//getListView().invalidateViews();
-			return true;
-		case R.id.deselect_all_contacts:
-			selectedContacts.clear();
-			mAdapter.notifyDataSetChanged();
-			return true;
-		default:
-			return super.onOptionsItemSelected(item);
-		}
+            mAdapter.notifyDataSetChanged();
+            //getListView().invalidateViews();
+            return true;
+        } else if (item.getItemId() == R.id.deselect_all_contacts) {
+            selectedContacts.clear();
+            mAdapter.notifyDataSetChanged();
+            return true;
+        } else {
+            return super.onOptionsItemSelected(item);
+        }
 	}
 
 	public void restartLoader() {
