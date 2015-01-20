@@ -5,14 +5,13 @@ android {
     buildToolsVersion "19.1.0"
 
     defaultConfig {
-        applicationId "com.davidhampgonsalves.contactidenticons"
         minSdkVersion 12
         targetSdkVersion 18
     }
 
     buildTypes {
         release {
-            runProguard false
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
     }
